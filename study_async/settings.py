@@ -141,3 +141,24 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants
+
+MESSAGE_TAGS = {
+    constants.DEBUG: 'alert-primary',
+    constants.ERROR: 'alert-danger',
+    constants.SUCCESS: 'alert-success',
+    constants.INFO: 'alert-info',
+    constants.WARNING: 'alert-warning',
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #use o backend para smtp para enviar emails
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "lucassilva270805@gmail.com"
+EMAIL_HOST_PASSWORD = "irgr lqhz tgph hajs"
+
+LOGIN_URL = '/usuarios/login'
+LOGIN_REDIRECT_URL = '/flashcard/novo_flashcard'
+LOGOUT_REDIRECT_URL = '/usuarios/login'
