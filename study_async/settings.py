@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
 import os
 
@@ -77,21 +77,10 @@ WSGI_APPLICATION = 'study_async.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
-  'default': {
-      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-      'NAME': 'Django',
-      'USER': 'postgres',
-      'PASSWORD': 'root',
-      'HOST': '127.0.0.1',
-      'PORT': '5432',  
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -152,12 +141,12 @@ MESSAGE_TAGS = {
     constants.WARNING: 'alert-warning',
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #use o backend para smtp para enviar emails
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "lucassilva270805@gmail.com"
-EMAIL_HOST_PASSWORD = "irgr lqhz tgph hajs"
+EMAIL_BACKEND = config('EMAIL_BACKEND' cast=str) #use o backend para smtp para enviar emails
+EMAIL_HOST = config('EMAIL_HOST', cast = str)
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', cast=str)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', cast=str)
 
 LOGIN_URL = '/usuarios/login'
 LOGIN_REDIRECT_URL = '/flashcard/novo_flashcard'

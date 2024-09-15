@@ -11,7 +11,7 @@ def adicionar_apostilas(request):
         apostilas = Apostila.objects.filter(user=request.user)
 
         views_totais = ViewApostila.objects.filter(apostila__user=request.user).count()
-        return render(request, 'adicionar_apostilas.html', {'apostilas': apostilas})
+        return render(request, 'apostilas/adicionar_apostilas.html', {'apostilas': apostilas})
     elif request.method == 'POST':
         titulo = request.POST.get('titulo')
         arquivo = request.FILES['arquivo']
