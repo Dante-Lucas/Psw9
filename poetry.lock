@@ -204,6 +204,17 @@ files = [
 ]
 
 [[package]]
+name = "python-decouple"
+version = "3.8"
+description = "Strict separation of settings from code."
+optional = false
+python-versions = "*"
+files = [
+    {file = "python-decouple-3.8.tar.gz", hash = "sha256:ba6e2657d4f376ecc46f77a3a615e058d93ba5e465c01bbe57289bfb7cce680f"},
+    {file = "python_decouple-3.8-py3-none-any.whl", hash = "sha256:d0d45340815b25f4de59c974b855bb38d03151d81b037d9e3f463b0c9f8cbd66"},
+]
+
+[[package]]
 name = "sqlparse"
 version = "0.5.1"
 description = "A non-validating SQL parser."
@@ -260,4 +271,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "22499e6b9d3bb47eb1a5579387564c62afc9bbb77174755285beacc69cbbdf36"
+content-hash = "01953b0395ca3b152ea9b43195ba289c1278820de4b7ada7fb1857d55809eba3"
